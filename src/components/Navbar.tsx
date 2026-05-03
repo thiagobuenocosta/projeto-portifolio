@@ -1,0 +1,102 @@
+import { useState, useEffect } from 'react';
+import { Menu, X, Zap } from 'lucide-react';
+import { Button } from './ui/Button';
+
+const navLinks = [
+  { label: 'Soluções', href: '#solucoes' },
+  { label: 'Processo', href: '#processo' },
+  { label: 'Cases', href: '#cases' },
+  { label: 'Pacotes', href: '#pacotes' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const handleScroll = (href: string) => {
+    setMenuOpen(false);
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-surface-950/90 backdrop-blur-md border-b border-white/[0.06] shadow-xl shadow-black/30'
+          : 'bg-transparent'
+      }`}
+    >
+      <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="#" className="flex items-center gap-2.5 group" aria-label="Thiago Bueno Home">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center shadow-brand group-hover:shadow-brand-lg transition-shadow duration-300">
+            <Zap className="w-4 h-4 text-white fill-white" />
+          </div>
+          <span className="font-bold text-white tracking-tight">
+            dev<span className="text-brand-400">.</span>ThiagoBueno
+          </span>
+        </a>
+
+        <ul className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <button
+                onClick={() => handleScroll(link.href)}
+                className="px-4 py-2 text-sm text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.05] transition-all duration-200"
+              >
+                {link.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+
+        <Button 
+          variant="primary" 
+          className="hidden md:inline-flex text-sm py-2.5 px-5"
+          onClick={() => handleScroll('#contato')}
+        >
+          Solicitar Consultoria
+        </Button>
+
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.08] transition-all"
+          aria-label="Menu"
+        >
+          {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
+      </nav>
+
+      {menuOpen && (
+        <div className="md:hidden bg-surface-900/95 backdrop-blur-md border-b border-white/[0.06]">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <button
+                key={link.href}
+                onClick={() => handleScroll(link.href)}
+                className="px-4 py-3 text-sm text-left text-slate-300 hover:text-white hover:bg-white/[0.05] rounded-lg transition-all"
+              >
+                {link.label}
+              </button>
+            ))}
+            <div className="pt-3 border-t border-white/[0.06] mt-2">
+              <Button 
+                variant="primary" 
+                className="w-full justify-center text-sm"
+                onClick={() => handleScroll('#contato')}
+              >
+                Solicitar Consultoria
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
