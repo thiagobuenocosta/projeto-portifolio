@@ -1,4 +1,3 @@
-import React from 'react';
 import { Code2, Layers, Zap, Shield, BarChart3, Handshake } from 'lucide-react';
 import { Section } from './ui/Section';
 
