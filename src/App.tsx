@@ -11,10 +11,12 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
+import Preloader from './components/Preloader'
 
 export default function App() {
   return (
     <div className="min-h-screen">
+      <Preloader />
       <Navbar />
       <main>
         <Hero />

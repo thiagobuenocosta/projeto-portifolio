@@ -74,3 +74,4 @@ Princípios que guiam o desenvolvimento e a manutenção deste projeto, baseados
 - [x] Design System unificado no Tailwind (Paleta Brand, Surface e Accent).
 - [x] Implementação do Vercel Speed Insights para monitoramento de performance.
 - [x] Implementação do Vercel Analytics para métricas de tráfego.
+- [x] Implementação de Pre-loader premium com animação fluida em vídeo.
