@@ -9,6 +9,8 @@ import Pricing from './components/Pricing'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
 
 export default function App() {
   return (
@@ -26,6 +28,8 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <SpeedInsights />
+      <Analytics />
     </div>
   )
 }

@@ -72,3 +72,5 @@ Princípios que guiam o desenvolvimento e a manutenção deste projeto, baseados
 - [x] Refatoração do Hero para foco em UVP (Unique Value Proposition).
 - [x] Configuração de FAQ para quebra de objeções.
 - [x] Design System unificado no Tailwind (Paleta Brand, Surface e Accent).
+- [x] Implementação do Vercel Speed Insights para monitoramento de performance.
+- [x] Implementação do Vercel Analytics para métricas de tráfego.
