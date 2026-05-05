@@ -24,6 +24,10 @@ Princípios que guiam o desenvolvimento e a manutenção deste projeto, baseados
 
 8.  **O agente nunca diz “não”. Você é o filtro.** A IA é uma ferramenta que implementará o que for pedido, seja uma solução over-engineered ou insegura. O desenvolvedor humano é o revisor de código, o arquiteto de segurança e o "adulto na sala", responsável por garantir a qualidade e a sensatez das soluções implementadas.
 
+9.  **Institucionalização gera Autoridade.** A transição do tom de voz de "Eu" (Freelancer) para "Nós/Nossa Equipe" (Estúdio/Agência) altera a percepção de escala e profissionalismo, permitindo tickets médios mais altos e maior confiança do cliente B2B.
+
+10. **Serviços Produtizados eliminam a dúvida.** Estruturar a oferta em pacotes fechados (Tiers: Foundation, Transformation, Partnership) com preços e prazos claros reduz o ciclo de venda e facilita o onboarding do cliente.
+
 ---
 
 ## 1. Stack Tecnológica (Frontend)
@@ -41,13 +45,30 @@ Princípios que guiam o desenvolvimento e a manutenção deste projeto, baseados
 - **Atomic UI Components:** Componentes fundamentais residem em `src/components/ui/` (`Button`, `Section`, `SectionHeader`). Eles devem ser agnósticos a dados e focar apenas na apresentação.
 - **Centralização de Conteúdo (Data-Driven UI):** Todo o copywriting, preços e detalhes de serviços devem ser mantidos em `src/constants/content.ts`. O objetivo é separar a camada de dados da lógica do React.
 - **Navegação:** Uso de IDs de âncora com `scrollIntoView({ behavior: 'smooth' })`.
-- **Design Premium:** Dark Mode nativo com uso de glassmorphism (`backdrop-blur`), gradientes radiais e micro-animações (framer-motion opcional, CSS animations preferencial para performance).
+- **Design Premium (Identidade Nexus):** Dark Mode nativo com uso de glassmorphism (`backdrop-blur`), gradientes radiais saturados e micro-animações CSS. O foco é uma estética futurista, limpa e de alta performance.
 
 ---
 
-## 3. Identidade e Conversão
+## 3. Identidade e Estratégia de Negócio
 
-- **Nome da Marca:** `dev.ThiagoBueno`.
-- **Foco de Negócio:** Serviços Produtizados (Productized Services) — venda de resultados com escopo e preço fechados.
-- **Funil de Venda:** Homepage estruturada em: Atenção (Hero) -> Agitação do Problema -> Solução (Produtos) -> Prova Social -> Objeções (FAQ) -> Chamada para Ação (Contato Qualificado).
-- **Lead Qualification:** O formulário de contato deve capturar a "dor" e o "custo do problema" para pré-selecionar clientes de alto valor.
+- **Nome da Marca:** `Rosa Bueno Studio Tech`.
+- **Posicionamento:** Estúdio de Consultoria Tecnológica e Engenharia de Elite — "Nossa equipe projeta e constrói posicionamentos digitais de alto impacto do zero".
+- **UVP:** "Nossa equipe projeta e constrói posicionamentos digitais de alto impacto do zero para transformar tecnologia em lucro".
+- **Serviços Produtizados (Tiers):**
+    1. **Foundation (Auditoria de Posicionamento):** Diagnóstico técnico e estratégico com plano de ação (Entrega em 5 dias).
+    2. **Transformation (Website Rescue / Novo Site):** Intervenção completa para resgatar autoridade e acelerar conversão (Entrega em 2-4 semanas).
+    3. **Partnership (Retainer Mensal):** Evolução contínua e suporte estratégico como equipe de Tech Lead dedicada.
+- **Carro-chefe:** Case T&K Jeans Wear como exemplo de impacto real em ROI (vendas e performance).
+- **Conversão (CTAs):** Foco em "Solicitar Diagnóstico" e "Iniciar Projeto" para qualificar leads de alto valor.
+
+---
+
+## 4. Progresso Consolidado (Maio 2026)
+
+- [x] Reposicionamento completo da marca (de Thiago Bueno para Rosa Bueno Studio Tech).
+- [x] Institucionalização do Copywriting (plural majestático "Nós").
+- [x] Estruturação da camada de dados em `content.ts`.
+- [x] Implementação da Seção de Autoridade com Cases Reais.
+- [x] Refatoração do Hero para foco em UVP (Unique Value Proposition).
+- [x] Configuração de FAQ para quebra de objeções.
+- [x] Design System unificado no Tailwind (Paleta Brand, Surface e Accent).
