@@ -34,12 +34,16 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2.5 group" aria-label="Thiago Bueno Home">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center shadow-brand group-hover:shadow-brand-lg transition-shadow duration-300">
-            <Zap className="w-4 h-4 text-white fill-white" />
+        <a href="#" className="flex items-center gap-3 group" aria-label="Rosa Bueno Studio Tech Home">
+          <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-white/10 shadow-brand group-hover:shadow-brand-lg transition-all duration-300">
+            <img 
+              src="/favicon.jpeg" 
+              alt="RB Studio Tech Logo" 
+              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+            />
           </div>
-          <span className="font-bold text-white tracking-tight">
-            dev<span className="text-brand-400">.</span>ThiagoBueno
+          <span className="font-bold text-white tracking-tight uppercase text-sm lg:text-base">
+            Rosa Bueno <span className="text-brand-400">Studio Tech</span>
           </span>
         </a>
 

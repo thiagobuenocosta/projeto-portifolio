@@ -49,8 +49,8 @@ export default function Footer() {
               <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center">
                 <Zap className="w-3.5 h-3.5 text-white fill-white" />
               </div>
-              <span className="font-bold text-white text-sm tracking-tight">
-                dev<span className="text-brand-400">.</span>ThiagoBueno
+              <span className="font-bold text-white text-sm tracking-tight uppercase">
+                Rosa Bueno <span className="text-brand-400">Studio Tech</span>
               </span>
             </div>
 
@@ -97,10 +97,10 @@ export default function Footer() {
 
           <div className="mt-8 pt-6 border-t border-white/[0.05] flex flex-col md:flex-row items-center justify-between gap-3">
             <p className="text-xs text-slate-600">
-              © {new Date().getFullYear()} Thiago Bueno Costa. Todos os direitos reservados.
+              © {new Date().getFullYear()} Rosa Bueno Studio Tech. Todos os direitos reservados.
             </p>
             <p className="text-xs text-slate-700 font-mono">
-              Construído com React + TypeScript + Tailwind CSS
+              Elite Engineering for Modern Business
             </p>
           </div>
         </div>

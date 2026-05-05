@@ -1,5 +1,6 @@
 import { ArrowRight, Calendar, TrendingUp, Gauge } from 'lucide-react';
 import { Button } from './ui/Button';
+import { BRAND } from '../constants/content';
 
 export default function Hero() {
   return (
@@ -23,28 +24,25 @@ export default function Hero() {
         <div className="flex flex-col gap-8">
           <div className="flex">
             <span className="tag animate-fade-up">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse-slow" />
-              Disponível para novos projetos
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse-slow" />
+              Cronograma de Projetos {new Date().getFullYear()} Aberto
             </span>
           </div>
 
           <div className="animate-fade-up animate-delay-100">
             <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight">
-              <span className="gradient-text">Transforme sua</span>
+              <span className="gradient-text">Construímos seu</span>
               <br />
-              <span className="gradient-text-brand">Presença Digital</span>
+              <span className="gradient-text-brand">Posicionamento</span>
               <br />
-              <span className="gradient-text">em Ativo de Alta</span>
+              <span className="gradient-text">Digital do</span>
               <br />
-              <span className="text-white">Conversão</span>
+              <span className="text-white">Zero</span>
             </h1>
           </div>
 
           <p className="text-lg text-slate-400 leading-relaxed max-w-lg animate-fade-up animate-delay-200">
-            Sites institucionais, e-commerces sob medida e resgate de projetos.{' '}
-            <strong className="text-slate-200 font-medium">Engenharia de software de ponta</strong>{' '}
-            entregue como produto com escopo fechado, prazo definido e{' '}
-            <strong className="text-slate-200 font-medium">sem surpresas no orçamento</strong>.
+            {BRAND.subheadline}
           </p>
 
           <div className="flex flex-wrap gap-4 animate-fade-up animate-delay-300">

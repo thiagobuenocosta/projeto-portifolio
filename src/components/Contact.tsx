@@ -30,7 +30,7 @@ export default function Contact() {
               Obrigado, <strong className="text-white">{form.name}</strong>!
             </p>
             <p className="text-slate-400 leading-relaxed">
-              Analisei centenas de projetos similares. Entrarei em contato em <strong className="text-white">até 24h úteis</strong> com um diagnóstico inicial e próximos passos.
+              Nossa equipe analisou centenas de projetos similares. Entraremos em contato em <strong className="text-white">até 24h úteis</strong> com um diagnóstico inicial e próximos passos estratégicos.
             </p>
           </div>
         </div>

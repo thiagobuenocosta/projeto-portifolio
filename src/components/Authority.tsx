@@ -51,15 +51,15 @@ export default function Authority() {
     <Section id="processo">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <p className="section-label mb-4">Por Que Me Escolher</p>
+          <p className="section-label mb-4">Por Que Escolher Nosso Estúdio</p>
           <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-white mb-6 leading-tight">
-            Não sou um{' '}
-            <span className="text-slate-500 line-through decoration-red-500">fazedor de sites</span>.
+            Não somos apenas uma{' '}
+            <span className="text-slate-500 line-through decoration-red-500">agência</span>.
             <br />
-            <span className="gradient-text-brand">Sou seu parceiro tecnológico.</span>
+            <span className="gradient-text-brand">Somos seu estúdio de engenharia.</span>
           </h2>
           <p className="text-lg text-slate-400 leading-relaxed mb-8">
-            A maioria das agências entrega um site bonito e sumem. Eu entrego uma solução técnica que gera resultado mensurável — e fico disponível para evoluir junto com o seu negócio.
+            Enquanto agências focam apenas no visual, nosso estúdio foca na infraestrutura que sustenta seu lucro. Entregamos soluções técnicas de alta performance que geram resultados mensuráveis — com suporte contínuo para sua evolução.
           </p>
 
           <div className="glass-card p-5">
