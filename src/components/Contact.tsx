@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Send, ArrowRight, CheckCircle, MessageCircle, Loader2 } from 'lucide-react';
-import { Section } from './ui/Section';
-import { Button } from './ui/Button';
+import { Section, Button, FormField } from '@/components/ui';
 
 export default function Contact({ selectedIntent }: { selectedIntent?: string }) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -40,7 +39,7 @@ export default function Contact({ selectedIntent }: { selectedIntent?: string })
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch (_error) {
       setStatus('error');
     }
   };
@@ -148,7 +147,7 @@ export default function Contact({ selectedIntent }: { selectedIntent?: string })
             )}
 
             <div className="grid sm:grid-cols-2 gap-4">
-              <Field
+              <FormField
                 id="name"
                 label="Seu nome *"
                 type="text"
@@ -157,7 +156,7 @@ export default function Contact({ selectedIntent }: { selectedIntent?: string })
                 onChange={(v) => setForm({ ...form, name: v })}
                 required
               />
-              <Field
+              <FormField
                 id="email"
                 label="E-mail *"
                 type="email"
@@ -168,7 +167,7 @@ export default function Contact({ selectedIntent }: { selectedIntent?: string })
               />
             </div>
 
-            <Field
+            <FormField
               id="company"
               label="Empresa / Projeto"
               type="text"
@@ -265,29 +264,5 @@ export default function Contact({ selectedIntent }: { selectedIntent?: string })
         </div>
       </div>
     </Section>
-  );
-}
-
-function Field({
-  id, label, type, placeholder, value, onChange, required,
-}: {
-  id: string; label: string; type: string; placeholder: string;
-  value: string; onChange: (v: string) => void; required?: boolean
-}) {
-  return (
-    <div>
-      <label htmlFor={id} className="block text-xs font-semibold text-slate-400 mb-1.5">
-        {label}
-      </label>
-      <input
-        id={id}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        required={required}
-        className="w-full bg-white/[0.04] border border-white/[0.09] rounded-xl px-4 py-3 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-brand-600 focus:ring-1 focus:ring-brand-600/30 transition-all"
-      />
-    </div>
   );
 }

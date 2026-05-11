@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { Section } from './ui/Section';
-import { SectionHeader } from './ui/SectionHeader';
-import { FAQS } from '../constants/content';
+import { Section, SectionHeader } from '@/components/ui';
+import { FAQS } from '@/constants/content';
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);

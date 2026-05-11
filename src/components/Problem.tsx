@@ -1,30 +1,16 @@
 import { AlertTriangle, Clock, TrendingDown, ShieldOff } from 'lucide-react';
-import { Section } from './ui/Section';
-import { SectionHeader } from './ui/SectionHeader';
-import { Button } from './ui/Button';
+import { Section } from '@/components/ui/Section';
+import { SectionHeader } from '@/components/ui/SectionHeader';
+import { Button } from '@/components/ui/Button';
+import { PAINS } from '@/constants/content';
+import { scrollTo } from '@/utils/scroll';
 
-const pains = [
-  {
-    icon: <Clock className="w-6 h-6 text-red-400" />,
-    title: 'Seu site demora mais de 3 segundos para carregar?',
-    desc: 'Cada segundo a mais no carregamento custa até 7% em conversões. Seu site lento é um vendedor que espanta clientes antes mesmo de abrir a boca.',
-  },
-  {
-    icon: <TrendingDown className="w-6 h-6 text-orange-400" />,
-    title: 'Visitantes chegam mas não compram nem ligam?',
-    desc: 'Tráfego sem conversão é dinheiro jogado fora. A maioria dos sites tem UX quebrada e CTAs invisíveis que sabotam qualquer campanha de marketing.',
-  },
-  {
-    icon: <ShieldOff className="w-6 h-6 text-yellow-400" />,
-    title: 'Preso em tecnologia legada que ninguém consegue mexer?',
-    desc: 'Plataformas engessadas travam o crescimento e encarecem qualquer mudança. Você paga caro por menos e ainda depende de quem sabe o "segredo" do sistema.',
-  },
-  {
-    icon: <AlertTriangle className="w-6 h-6 text-red-400" />,
-    title: 'Projeto inacabado consumindo tempo e dinheiro?',
-    desc: 'Prazos que não se cumprem, escopo que cresce sem controle e orçamentos que explodem. A incerteza tecnológica paralisa decisões e drena recursos.',
-  },
-];
+const iconMap: Record<string, React.ReactNode> = {
+  Clock: <Clock className="w-6 h-6 text-red-400" />,
+  TrendingDown: <TrendingDown className="w-6 h-6 text-orange-400" />,
+  ShieldOff: <ShieldOff className="w-6 h-6 text-yellow-400" />,
+  AlertTriangle: <AlertTriangle className="w-6 h-6 text-red-400" />,
+};
 
 export default function Problem() {
   return (
@@ -45,13 +31,13 @@ export default function Problem() {
       />
 
       <div className="grid md:grid-cols-2 gap-6 mb-16">
-        {pains.map((pain) => (
+        {PAINS.map((pain) => (
           <div
             key={pain.title}
             className="glass-card p-6 flex gap-5 group"
           >
             <div className="mt-0.5 flex-shrink-0 w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center group-hover:border-brand-700/40 transition-all">
-              {pain.icon}
+              {iconMap[pain.iconName]}
             </div>
             <div>
               <h3 className="text-base font-semibold text-white mb-2 leading-snug">{pain.title}</h3>
@@ -71,7 +57,7 @@ export default function Problem() {
           </p>
         </div>
         <Button 
-          onClick={() => document.getElementById('solucoes')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => scrollTo('solucoes')}
         >
           Ver como funciona
         </Button>

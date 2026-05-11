@@ -1,7 +1,7 @@
 import { ArrowUpRight } from 'lucide-react';
-import { Section } from './ui/Section';
-import { SectionHeader } from './ui/SectionHeader';
-import { CASES } from '../constants/content';
+import { Section, SectionHeader } from '@/components/ui';
+import { CASES } from '@/constants/content';
+import { scrollTo } from '@/utils/scroll';
 
 export default function CaseStudies() {
   return (
@@ -66,7 +66,7 @@ export default function CaseStudies() {
                 </div>
 
                 <button
-                  onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => scrollTo('contato')}
                   className="mt-8 inline-flex items-center gap-2 text-sm text-brand-400 hover:text-brand-300 font-semibold transition-colors group text-left"
                 >
                   Quero resultado similar

@@ -1,6 +1,7 @@
 import { ArrowRight, Calendar, TrendingUp, Gauge } from 'lucide-react';
-import { Button } from './ui/Button';
-import { BRAND } from '../constants/content';
+import { Button } from '@/components/ui';
+import { BRAND } from '@/constants/content';
+import { scrollTo } from '@/utils/scroll';
 
 export default function Hero({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
   return (
@@ -11,10 +12,7 @@ export default function Hero({ onSelectIntent }: { onSelectIntent: (intent: stri
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)
-            `,
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)`,
             backgroundSize: '60px 60px',
           }}
         />
@@ -31,12 +29,9 @@ export default function Hero({ onSelectIntent }: { onSelectIntent: (intent: stri
 
           <div className="animate-fade-up animate-delay-100">
             <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight">
-              <span className="gradient-text">Construímos seu</span>
-              <br />
-              <span className="gradient-text-brand">Posicionamento</span>
-              <br />
-              <span className="gradient-text">Digital do</span>
-              <br />
+              <span className="gradient-text">Construímos seu</span><br />
+              <span className="gradient-text-brand">Posicionamento</span><br />
+              <span className="gradient-text">Digital do</span><br />
               <span className="text-white">Zero</span>
             </h1>
           </div>
@@ -46,17 +41,10 @@ export default function Hero({ onSelectIntent }: { onSelectIntent: (intent: stri
           </p>
 
           <div className="flex flex-wrap gap-4 animate-fade-up animate-delay-300">
-            <Button 
-              icon={<ArrowRight className="w-4 h-4" />}
-              onClick={() => document.getElementById('solucoes')?.scrollIntoView({ behavior: 'smooth' })}
-            >
+            <Button icon={<ArrowRight className="w-4 h-4" />} onClick={() => scrollTo('solucoes')}>
               Ver Soluções
             </Button>
-            <Button 
-              variant="secondary"
-              icon={<Calendar className="w-4 h-4" />}
-              onClick={() => onSelectIntent('Diagnóstico Gratuito')}
-            >
+            <Button variant="secondary" icon={<Calendar className="w-4 h-4" />} onClick={() => onSelectIntent('Diagnóstico Gratuito')}>
               Diagnóstico Gratuito
             </Button>
           </div>
@@ -95,23 +83,18 @@ function HeroCard() {
     <div className="relative w-full max-w-md animate-float">
       <div className="glass-card p-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-48 h-48 bg-brand-500/10 rounded-full blur-2xl" />
-
         <div className="relative">
           <div className="flex items-center justify-between mb-6">
             <div>
               <p className="section-label mb-1">Performance Report</p>
               <p className="text-white font-semibold">T&amp;K Jeans Wear</p>
             </div>
-            <span className="px-2.5 py-1 rounded-lg bg-green-500/15 text-green-400 text-xs font-semibold border border-green-500/20">
-              ✓ Concluído
-            </span>
+            <span className="px-2.5 py-1 rounded-lg bg-green-500/15 text-green-400 text-xs font-semibold border border-green-500/20">✓ Concluído</span>
           </div>
-
           <div className="space-y-4 mb-6">
             <LCPBar label="LCP Antes" value={68} color="bg-red-500" time="6.2s" bad />
             <LCPBar label="LCP Depois" value={18} color="bg-green-500" time="1.4s" />
           </div>
-
           <div className="grid grid-cols-3 gap-3">
             {[
               { value: '+28%', label: 'Conversão', color: 'text-green-400' },
@@ -126,7 +109,6 @@ function HeroCard() {
           </div>
         </div>
       </div>
-
       <div className="absolute -top-4 -right-4 glass-card px-4 py-2.5 shadow-brand animate-glow">
         <p className="text-xs text-slate-400 font-mono">PageSpeed Score</p>
         <p className="text-2xl font-black text-green-400">92</p>
@@ -135,9 +117,7 @@ function HeroCard() {
   );
 }
 
-function LCPBar({ label, value, color, time, bad }: {
-  label: string; value: number; color: string; time: string; bad?: boolean
-}) {
+function LCPBar({ label, value, color, time, bad }: { label: string; value: number; color: string; time: string; bad?: boolean }) {
   return (
     <div>
       <div className="flex justify-between mb-1.5">
@@ -145,10 +125,7 @@ function LCPBar({ label, value, color, time, bad }: {
         <span className={`text-xs font-mono font-semibold ${bad ? 'text-red-400' : 'text-green-400'}`}>{time}</span>
       </div>
       <div className="h-2 bg-white/[0.06] rounded-full overflow-hidden">
-        <div
-          className={`h-full ${color} rounded-full transition-all duration-1000`}
-          style={{ width: `${value}%` }}
-        />
+        <div className={`h-full ${color} rounded-full transition-all duration-1000`} style={{ width: `${value}%` }} />
       </div>
     </div>
   );

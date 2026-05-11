@@ -1,5 +1,8 @@
-import React from 'react';
-import { Building2, ShoppingCart, Wrench } from 'lucide-react';
+import type { Service, PricingTier, Faq, Testimonial, Case, Pillar, Pain } from '@/types';
+
+// ============================================================
+// Brand
+// ============================================================
 
 export const BRAND = {
   name: "Rosa Bueno Studio Tech",
@@ -8,10 +11,14 @@ export const BRAND = {
   subheadline: "Unimos design de elite, engenharia de software e estratégia de negócio para construir ecossistemas digitais que vendem sozinhos.",
 };
 
-export const SERVICES = [
+// ============================================================
+// Serviços (Soluções)
+// ============================================================
+
+export const SERVICES: Service[] = [
   {
     id: 'presenca',
-    icon: React.createElement(Building2, { className: "w-7 h-7" }),
+    iconName: 'Building2',
     tag: 'Produto 1',
     title: 'Presença & Autoridade',
     subtitle: 'Portfólios e Sites Empresariais',
@@ -32,7 +39,7 @@ export const SERVICES = [
   },
   {
     id: 'maquina-de-vendas',
-    icon: React.createElement(ShoppingCart, { className: "w-7 h-7" }),
+    iconName: 'ShoppingCart',
     tag: 'Produto 2 — Mais Popular',
     title: 'Máquina de Vendas',
     subtitle: 'E-commerce & Plataformas B2B',
@@ -54,7 +61,7 @@ export const SERVICES = [
   },
   {
     id: 'website-rescue',
-    icon: React.createElement(Wrench, { className: "w-7 h-7" }),
+    iconName: 'Wrench',
     tag: 'Produto 3',
     title: 'Evolução & Website Rescue',
     subtitle: 'Resgate e Otimização de Projetos',
@@ -75,7 +82,11 @@ export const SERVICES = [
   },
 ];
 
-export const PRICING_TIERS = [
+// ============================================================
+// Pricing
+// ============================================================
+
+export const PRICING_TIERS: PricingTier[] = [
   {
     id: 'foundation',
     name: 'Foundation',
@@ -92,7 +103,7 @@ export const PRICING_TIERS = [
       'Chamada estratégica de 60min',
     ],
     cta: 'Solicitar Auditoria',
-    variant: 'secondary' as const,
+    variant: 'secondary',
     highlight: false,
   },
   {
@@ -113,7 +124,7 @@ export const PRICING_TIERS = [
     ],
     badge: 'Mais Escolhido',
     cta: 'Iniciar Projeto',
-    variant: 'primary' as const,
+    variant: 'primary',
     highlight: true,
   },
   {
@@ -132,12 +143,16 @@ export const PRICING_TIERS = [
       'Relatórios mensais de impacto e ROI',
     ],
     cta: 'Conversar sobre Retainer',
-    variant: 'secondary' as const,
+    variant: 'secondary',
     highlight: false,
   },
 ];
 
-export const FAQS = [
+// ============================================================
+// FAQ
+// ============================================================
+
+export const FAQS: Faq[] = [
   {
     q: 'Qual é o prazo de entrega?',
     a: 'Depende do pacote escolhido. A Auditoria é entregue em 5 dias úteis. O Website Rescue / Novo Site leva de 2 a 4 semanas dependendo da complexidade. Nossa equipe define o cronograma exato antes de iniciar.',
@@ -164,7 +179,11 @@ export const FAQS = [
   },
 ];
 
-export const TESTIMONIALS = [
+// ============================================================
+// Testimonials
+// ============================================================
+
+export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
     name: 'Carlos Mendonça',
@@ -194,7 +213,11 @@ export const TESTIMONIALS = [
   },
 ];
 
-export const CASES = [
+// ============================================================
+// Cases
+// ============================================================
+
+export const CASES: Case[] = [
   {
     id: 'tk-jeans',
     client: 'T&K Jeans Wear',
@@ -222,5 +245,81 @@ export const CASES = [
     ],
     tags: ['React', 'TypeScript', 'PWA', 'B2B'],
     gradient: 'from-violet-900/40 to-surface-800/80',
+  },
+];
+
+// ============================================================
+// Pillars (Authority)
+// ============================================================
+
+export const PILLARS: Pillar[] = [
+  {
+    iconName: 'Code2',
+    title: 'React & Arquitetura Moderna',
+    desc: 'Construído com React 18+, TypeScript e Vite — a stack que os grandes produtos usam para máxima performance e manutenibilidade.',
+    color: 'text-brand-400',
+    bg: 'bg-brand-600/15',
+  },
+  {
+    iconName: 'Zap',
+    title: 'Performance como Produto',
+    desc: 'Core Web Vitals no verde não é bônus, é requisito. Cada linha de código é escrita pensando em velocidade e fluidez do usuário final.',
+    color: 'text-yellow-400',
+    bg: 'bg-yellow-600/15',
+  },
+  {
+    iconName: 'Layers',
+    title: 'Escopo Fechado, Sem Surpresas',
+    desc: 'Entregáveis claros, prazo definido e preço fixo antes de qualquer linha de código. Você planeja com segurança, eu entrego com precisão.',
+    color: 'text-green-400',
+    bg: 'bg-green-600/15',
+  },
+  {
+    iconName: 'Shield',
+    title: 'Engenharia de Sistemas Críticos',
+    desc: 'Experiência em sistemas de alta disponibilidade e missão crítica. Não é só "fazer funcionar", é garantir que nunca vai cair.',
+    color: 'text-cyan-400',
+    bg: 'bg-cyan-600/15',
+  },
+  {
+    iconName: 'BarChart3',
+    title: 'Foco em ROI, Não em Tecnologia',
+    desc: 'Cada decisão técnica é justificada em impacto de negócio. A tecnologia existe para servir seu objetivo, não para impressionar.',
+    color: 'text-violet-400',
+    bg: 'bg-violet-600/15',
+  },
+  {
+    iconName: 'Handshake',
+    title: 'Parceiro Tecnológico, Não Fornecedor',
+    desc: 'A diferença entre um "fazedor de sites" e um Tech Lead que entende seu negócio, propõe soluções e assume responsabilidade pelo resultado.',
+    color: 'text-brand-400',
+    bg: 'bg-brand-600/15',
+  },
+];
+
+// ============================================================
+// Pains (Problem)
+// ============================================================
+
+export const PAINS: Pain[] = [
+  {
+    iconName: 'Clock',
+    title: 'Seu site demora mais de 3 segundos para carregar?',
+    desc: 'Cada segundo a mais no carregamento custa até 7% em conversões. Seu site lento é um vendedor que espanta clientes antes mesmo de abrir a boca.',
+  },
+  {
+    iconName: 'TrendingDown',
+    title: 'Visitantes chegam mas não compram nem ligam?',
+    desc: 'Tráfego sem conversão é dinheiro jogado fora. A maioria dos sites tem UX quebrada e CTAs invisíveis que sabotam qualquer campanha de marketing.',
+  },
+  {
+    iconName: 'ShieldOff',
+    title: 'Preso em tecnologia legada que ninguém consegue mexer?',
+    desc: 'Plataformas engessadas travam o crescimento e encarecem qualquer mudança. Você paga caro por menos e ainda depende de quem sabe o "segredo" do sistema.',
+  },
+  {
+    iconName: 'AlertTriangle',
+    title: 'Projeto inacabado consumindo tempo e dinheiro?',
+    desc: 'Prazos que não se cumprem, escopo que cresce sem controle e orçamentos que explodem. A incerteza tecnológica paralisa decisões e drena recursos.',
   },
 ];

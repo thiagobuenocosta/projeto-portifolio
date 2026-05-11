@@ -1,8 +1,6 @@
 import { ArrowRight, Check, Star } from 'lucide-react';
-import { Section } from './ui/Section';
-import { SectionHeader } from './ui/SectionHeader';
-import { Button } from './ui/Button';
-import { PRICING_TIERS } from '../constants/content';
+import { Section, SectionHeader, Button } from '@/components/ui';
+import { PRICING_TIERS } from '@/constants/content';
 
 export default function Pricing({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
   return (
