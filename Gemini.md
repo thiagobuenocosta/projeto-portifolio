@@ -42,10 +42,11 @@ Princípios que guiam o desenvolvimento e a manutenção deste projeto, baseados
 
 ## 2. Arquitetura e Padrões
 
-- **Atomic UI Components:** Componentes fundamentais residem em `src/components/ui/` (`Button`, `Section`, `SectionHeader`). Eles devem ser agnósticos a dados e focar apenas na apresentação.
-- **Centralização de Conteúdo (Data-Driven UI):** Todo o copywriting, preços e detalhes de serviços devem ser mantidos em `src/constants/content.ts`. O objetivo é separar a camada de dados da lógica do React.
-- **Navegação:** Uso de IDs de âncora com `scrollIntoView({ behavior: 'smooth' })`.
-- **Design Premium (Identidade Nexus):** Dark Mode nativo com uso de glassmorphism (`backdrop-blur`), gradientes radiais saturados e micro-animações CSS. O foco é uma estética futurista, limpa e de alta performance.
+- **Estrutura de Domínio:** O código é organizado separando responsabilidades: `components/ui` para blocos reutilizáveis, `constants` para dados puros, `types` para definições TypeScript e `utils` para funções isoladas. O projeto faz uso de *Path Aliases* (`@/`) para garantir imports limpos.
+- **Centralização de Conteúdo (Data-Driven UI):** Todo o copywriting, preços e detalhes de serviços devem ser mantidos em `src/constants/content.ts`. O arquivo de dados **não** deve importar a biblioteca `React` nem criar elementos JSX. O objetivo é manter os dados puros.
+- **Navegação:** Uso da função utilitária `scrollTo()` centralizada para lidar com o comportamento de "smooth scroll".
+- **Performance:** Uso intenso de Code Splitting (separação dos vendors) no Vite, e *Lazy Loading* com `React.lazy()` + `Suspense` em seções não visíveis na primeira dobra para garantir LCP otimizado.
+- **Design Premium (Identidade Nexus):** Dark Mode nativo com uso de glassmorphism (`backdrop-blur`), gradientes radiais saturados e micro-animações em CSS puro. O foco é uma estética futurista, limpa e leve.
 
 ---
 
@@ -67,11 +68,15 @@ Princípios que guiam o desenvolvimento e a manutenção deste projeto, baseados
 
 - [x] Reposicionamento completo da marca (de Thiago Bueno para Rosa Bueno Studio Tech).
 - [x] Institucionalização do Copywriting (plural majestático "Nós").
-- [x] Estruturação da camada de dados em `content.ts`.
+- [x] Estruturação da camada de dados em `content.ts` (desacoplada da biblioteca React).
 - [x] Implementação da Seção de Autoridade com Cases Reais.
 - [x] Refatoração do Hero para foco em UVP (Unique Value Proposition).
 - [x] Configuração de FAQ para quebra de objeções.
 - [x] Design System unificado no Tailwind (Paleta Brand, Surface e Accent).
-- [x] Implementação do Vercel Speed Insights para monitoramento de performance.
-- [x] Implementação do Vercel Analytics para métricas de tráfego.
-- [x] Implementação de Pre-loader premium com animação fluida em vídeo.
+- [x] Implementação do Vercel Speed Insights e Analytics para monitoramento.
+- [x] Otimização avançada de SEO Técnico (Open Graph, Twitter Cards, Canonical URL `rosabueno.com.br`).
+- [x] Implementação de Dados Estruturados (JSON-LD) e Arquivos de Busca (`robots.txt`, `sitemap.xml`).
+- [x] Refatoração Arquitetural: Implementação de Path Aliases (`@/`), centralização de tipos (`types/`) e utilitários (`utils/`).
+- [x] Otimização de Performance: Substituição do preloader em vídeo (2.6MB) por uma animação CSS pura.
+- [x] Otimização de Performance: Implementação de *Code Splitting* (manualChunks no Vite) e *Lazy Loading* de seções.
+- [x] Estabilidade: Adição de `Error Boundaries` para prevenção de falhas sistêmicas de renderização.

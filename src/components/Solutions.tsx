@@ -1,8 +1,14 @@
-import { ArrowRight, Check } from 'lucide-react';
-import { Section } from './ui/Section';
-import { SectionHeader } from './ui/SectionHeader';
-import { Button } from './ui/Button';
-import { SERVICES } from '../constants/content';
+import { ArrowRight, Check, Building2, ShoppingCart, Wrench } from 'lucide-react';
+import { Section } from '@/components/ui/Section';
+import { SectionHeader } from '@/components/ui/SectionHeader';
+import { Button } from '@/components/ui/Button';
+import { SERVICES } from '@/constants/content';
+
+const iconMap: Record<string, React.ReactNode> = {
+  Building2: <Building2 className="w-7 h-7" />,
+  ShoppingCart: <ShoppingCart className="w-7 h-7" />,
+  Wrench: <Wrench className="w-7 h-7" />,
+};
 
 export default function Solutions({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
   return (
@@ -40,7 +46,7 @@ export default function Solutions({ onSelectIntent }: { onSelectIntent: (intent:
 
             <div className="mb-6">
               <div className={`w-14 h-14 rounded-2xl ${service.iconBg} flex items-center justify-center mb-4`}>
-                {service.icon}
+                {iconMap[service.iconName]}
               </div>
               <span className="section-label text-[10px] mb-2 block">{service.tag}</span>
               <h3 className="text-2xl font-black text-white mb-1">{service.title}</h3>

@@ -1,7 +1,6 @@
 import { Quote } from 'lucide-react';
-import { Section } from './ui/Section';
-import { SectionHeader } from './ui/SectionHeader';
-import { TESTIMONIALS } from '../constants/content';
+import { Section, SectionHeader } from '@/components/ui';
+import { TESTIMONIALS } from '@/constants/content';
 
 export default function SocialProof() {
   return (

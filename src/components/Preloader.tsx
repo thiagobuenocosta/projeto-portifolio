@@ -35,22 +35,17 @@ export default function Preloader() {
         `
       }}
     >
-      <div className="relative w-full max-w-4xl flex items-center justify-center px-6">
-        {/* Glow Effect ao fundo do vídeo - mais largo para acompanhar */}
-        <div className="absolute inset-0 bg-brand-500/10 blur-[120px] rounded-full animate-pulse" />
+      <div className="relative flex items-center justify-center w-32 h-32 animate-zoom-in mb-8">
+        <div className="absolute inset-0 bg-brand-500/10 blur-[40px] rounded-full animate-pulse-slow" />
         
-        <div className="relative w-full rounded-[20px] overflow-hidden border border-white/5 shadow-2xl bg-black/20">
-          <video
-            src="/loader.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-auto object-contain mix-blend-screen animate-zoom-in"
-          />
-          
-          {/* Sombra gradiente interna (Vinheta) - Usando a cor de fundo surface-900 para fusão perfeita */}
-          <div className="absolute inset-0 pointer-events-none rounded-[20px] shadow-[inset_0_0_100px_rgba(6,12,24,0.9)] bg-[radial-gradient(circle,transparent_40%,rgba(6,12,24,0.6)_100%)]" />
+        {/* Anéis de energia giratórios (CSS puro) */}
+        <div className="absolute inset-0 rounded-full border-t-2 border-brand-500 border-r-2 border-transparent border-b-2 border-transparent border-l-2 border-transparent animate-[spin_1.2s_linear_infinite]" />
+        <div className="absolute inset-2 rounded-full border-b-2 border-cyan-400 border-t-2 border-transparent border-r-2 border-transparent border-l-2 border-transparent animate-[spin_1.7s_linear_infinite_reverse]" />
+        <div className="absolute inset-4 rounded-full border-l-2 border-violet-500 border-t-2 border-transparent border-r-2 border-transparent border-b-2 border-transparent animate-[spin_2s_linear_infinite]" />
+        
+        {/* Centro (Logo RB) */}
+        <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-brand-500 to-cyan-500 shadow-[0_0_30px_rgba(10,127,255,0.4)] flex items-center justify-center">
+          <span className="font-black text-white text-base tracking-tighter">RB</span>
         </div>
       </div>
 

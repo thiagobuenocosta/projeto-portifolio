@@ -1,11 +1,8 @@
 import { ArrowRight, Zap } from 'lucide-react';
-import { Button } from './ui/Button';
+import { Button } from '@/components/ui';
+import { scrollTo } from '@/utils/scroll';
 
 export default function Footer({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <>
       <section className="relative py-24 overflow-hidden">
@@ -55,17 +52,22 @@ export default function Footer({ onSelectIntent }: { onSelectIntent: (intent: st
             </div>
 
             <nav className="flex items-center gap-6">
-              {['Soluções', 'Cases', 'Pacotes', 'FAQ', 'Contato'].map((link) => (
+              {[
+                { label: 'Soluções', id: 'solucoes' },
+                { label: 'Cases', id: 'cases' },
+                { label: 'Pacotes', id: 'pacotes' },
+                { label: 'FAQ', id: 'faq' },
+                { label: 'Contato', id: 'contato' },
+              ].map((link) => (
                 <button
-                  key={link}
-                  onClick={() => scrollTo(link.toLowerCase())}
+                  key={link.id}
+                  onClick={() => scrollTo(link.id)}
                   className="text-xs text-slate-500 hover:text-slate-300 transition-colors"
                 >
-                  {link}
+                  {link.label}
                 </button>
               ))}
             </nav>
-
           </div>
 
           <div className="mt-8 pt-6 border-t border-white/[0.05] flex flex-col md:flex-row items-center justify-between gap-3">
