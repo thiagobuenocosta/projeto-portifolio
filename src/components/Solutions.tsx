@@ -3,7 +3,6 @@ import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Button } from '@/components/ui/Button';
 import { SERVICES } from '@/constants/content';
-import type { IconName } from '@/types';
 
 const iconMap: Record<string, React.ReactNode> = {
   Building2: <Building2 className="w-7 h-7" />,
