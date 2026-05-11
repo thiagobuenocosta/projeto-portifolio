@@ -75,3 +75,6 @@ Princípios que guiam o desenvolvimento e a manutenção deste projeto, baseados
 - [x] Implementação do Vercel Speed Insights para monitoramento de performance.
 - [x] Implementação do Vercel Analytics para métricas de tráfego.
 - [x] Implementação de Pre-loader premium com animação fluida em vídeo.
+- [x] Otimização avançada de SEO Técnico (Open Graph, Twitter Cards, Canonical URL `rosabueno.com.br`).
+- [x] Implementação de Dados Estruturados (JSON-LD) para reconhecimento de marca (Organization/LocalBusiness) no Google Search.
+- [x] Criação e configuração de Arquivos de Busca (`robots.txt` e `sitemap.xml`) para indexação otimizada.
