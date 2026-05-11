@@ -4,7 +4,7 @@ import { SectionHeader } from './ui/SectionHeader';
 import { Button } from './ui/Button';
 import { SERVICES } from '../constants/content';
 
-export default function Solutions() {
+export default function Solutions({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
   return (
     <Section 
       id="solucoes"
@@ -64,7 +64,7 @@ export default function Solutions() {
               variant={service.featured ? 'primary' : 'secondary'}
               icon={<ArrowRight className="w-4 h-4" />}
               className={service.featured ? 'bg-gradient-to-r from-violet-600 to-brand-600' : ''}
-              onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => onSelectIntent(service.title)}
             >
               {service.cta}
             </Button>

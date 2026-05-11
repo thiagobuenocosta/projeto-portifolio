@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Problem from './components/Problem'
@@ -14,22 +15,29 @@ import { Analytics } from "@vercel/analytics/react"
 import Preloader from './components/Preloader'
 
 export default function App() {
+  const [selectedIntent, setSelectedIntent] = useState('');
+
+  const handleSelectIntent = (intent: string) => {
+    setSelectedIntent(intent);
+    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen">
       <Preloader />
-      <Navbar />
+      <Navbar onSelectIntent={handleSelectIntent} />
       <main>
-        <Hero />
+        <Hero onSelectIntent={handleSelectIntent} />
         <Problem />
-        <Solutions />
+        <Solutions onSelectIntent={handleSelectIntent} />
         <CaseStudies />
         <Authority />
         <SocialProof />
-        <Pricing />
+        <Pricing onSelectIntent={handleSelectIntent} />
         <FAQ />
-        <Contact />
+        <Contact selectedIntent={selectedIntent} />
       </main>
-      <Footer />
+      <Footer onSelectIntent={handleSelectIntent} />
       <SpeedInsights />
       <Analytics />
     </div>

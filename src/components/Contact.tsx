@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { Send, ArrowRight, CheckCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Send, ArrowRight, CheckCircle, MessageCircle, Loader2 } from 'lucide-react';
 import { Section } from './ui/Section';
 import { Button } from './ui/Button';
 
-export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+export default function Contact({ selectedIntent }: { selectedIntent?: string }) {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -14,16 +14,50 @@ export default function Contact() {
     budget: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    if (selectedIntent) {
+      setForm(prev => ({
+        ...prev,
+        problem: `Gostaria de solicitar um diagnóstico para o pacote: ${selectedIntent}.`
+      }));
+    }
+  }, [selectedIntent]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setTimeout(() => setSubmitted(true), 600);
+    setStatus('loading');
+
+    try {
+      // Nota: ID do Formspree configurado
+      const response = await fetch('https://formspree.io/f/xkoyqqjz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
   };
 
-  if (submitted) {
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent(
+      `Olá! Vim através do site e gostaria de um diagnóstico.\n\nNome: ${form.name || 'Não informado'}\nEmpresa: ${form.company || 'Não informada'}\nInteresse: ${selectedIntent || 'Geral'}`
+    );
+    window.open(`https://wa.me/556299645389?text=${message}`, '_blank');
+  };
+
+  if (status === 'success') {
     return (
       <Section id="contato">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="glass-card p-12">
+          <div className="glass-card p-12 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-500 to-cyan-500" />
             <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-6" />
             <h2 className="text-3xl font-black text-white mb-4">Mensagem Recebida! 🚀</h2>
             <p className="text-slate-400 mb-2">
@@ -32,6 +66,13 @@ export default function Contact() {
             <p className="text-slate-400 leading-relaxed">
               Nossa equipe analisou centenas de projetos similares. Entraremos em contato em <strong className="text-white">até 24h úteis</strong> com um diagnóstico inicial e próximos passos estratégicos.
             </p>
+            <Button 
+              variant="secondary" 
+              className="mt-8"
+              onClick={() => setStatus('idle')}
+            >
+              Enviar outra mensagem
+            </Button>
           </div>
         </div>
       </Section>
@@ -56,7 +97,7 @@ export default function Contact() {
             Preencha o formulário com detalhes do seu projeto. Quanto mais contexto você der, mais objetivo e útil será o retorno — sem "vou fazer um orçamento" genérico.
           </p>
 
-          <div className="space-y-4">
+          <div className="space-y-4 mb-10">
             {[
               { icon: '⚡', text: 'Resposta em até 24h úteis' },
               { icon: '🎯', text: 'Diagnóstico inicial sem custo' },
@@ -68,10 +109,44 @@ export default function Contact() {
               </div>
             ))}
           </div>
+
+          <div className="relative p-8 rounded-3xl bg-gradient-to-br from-[#25D366]/10 via-transparent to-brand-600/5 border border-[#25D366]/20 overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#25D366]/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-[#25D366]/20 transition-all duration-500" />
+            
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#25D366] flex items-center justify-center text-white shadow-lg shadow-[#25D366]/20 animate-pulse-slow">
+                  <MessageCircle className="w-6 h-6 fill-white" />
+                </div>
+                <div>
+                  <p className="text-lg font-black text-white">Contato Imediato</p>
+                  <p className="text-xs text-[#25D366] font-bold uppercase tracking-wider">Resposta em até 15 min</p>
+                </div>
+              </div>
+              
+              <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                Se você tem pressa e quer falar diretamente com um Tech Lead agora, o WhatsApp é o caminho mais rápido.
+              </p>
+
+              <button 
+                onClick={handleWhatsApp}
+                className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-[#25D366]/20"
+              >
+                Falar no WhatsApp Agora
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
         </div>
 
         <div className="glass-card p-8">
           <form onSubmit={handleSubmit} className="space-y-5">
+            {status === 'error' && (
+              <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm mb-4">
+                Ocorreu um erro ao enviar. Por favor, tente novamente ou use o WhatsApp.
+              </div>
+            )}
+
             <div className="grid sm:grid-cols-2 gap-4">
               <Field
                 id="name"
@@ -157,12 +232,31 @@ export default function Contact() {
 
             <Button
               type="submit"
-              icon={<Send className="w-4 h-4" />}
+              disabled={status === 'loading'}
+              icon={status === 'loading' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
               className="w-full justify-center"
             >
-              Enviar e Solicitar Diagnóstico
-              <ArrowRight className="w-4 h-4" />
+              {status === 'loading' ? 'Enviando...' : 'Enviar e Solicitar Diagnóstico'}
+              {status !== 'loading' && <ArrowRight className="w-4 h-4" />}
             </Button>
+
+            <div className="relative py-2">
+              <div className="absolute inset-0 flex items-center" aria-hidden="true">
+                <div className="w-full border-t border-white/[0.06]"></div>
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-surface-900 px-2 text-slate-500 font-mono">Ou se preferir</span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleWhatsApp}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-[#25D366]/30 text-[#25D366] text-sm font-bold hover:bg-[#25D366]/10 transition-all"
+            >
+              <MessageCircle className="w-4 h-4 fill-[#25D366]" />
+              Conversar via WhatsApp
+            </button>
 
             <p className="text-xs text-slate-600 text-center">
               Ao enviar, você concorda que suas informações sejam usadas para retorno de contato.

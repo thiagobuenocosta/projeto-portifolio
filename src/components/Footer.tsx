@@ -1,7 +1,7 @@
-import { ArrowRight, Zap, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Zap } from 'lucide-react';
 import { Button } from './ui/Button';
 
-export default function Footer() {
+export default function Footer({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -27,7 +27,7 @@ export default function Footer() {
             <Button 
               icon={<ArrowRight className="w-5 h-5" />}
               className="px-8 py-4 text-base"
-              onClick={() => scrollTo('contato')}
+              onClick={() => onSelectIntent('Consultoria Geral')}
             >
               Solicitar Consultoria
             </Button>
@@ -66,33 +66,6 @@ export default function Footer() {
               ))}
             </nav>
 
-            <div className="flex items-center gap-3">
-              <a
-                href="https://github.com/thiagobuenocosta"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-700/50 transition-all"
-              >
-                <Github className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/thiago-bueno-costa-440a45141/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-700/50 transition-all"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="mailto:th.bueno.95@gmail.com"
-                aria-label="E-mail"
-                className="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-700/50 transition-all"
-              >
-                <Mail className="w-4 h-4" />
-              </a>
-            </div>
           </div>
 
           <div className="mt-8 pt-6 border-t border-white/[0.05] flex flex-col md:flex-row items-center justify-between gap-3">

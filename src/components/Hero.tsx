@@ -2,7 +2,7 @@ import { ArrowRight, Calendar, TrendingUp, Gauge } from 'lucide-react';
 import { Button } from './ui/Button';
 import { BRAND } from '../constants/content';
 
-export default function Hero() {
+export default function Hero({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -55,7 +55,7 @@ export default function Hero() {
             <Button 
               variant="secondary"
               icon={<Calendar className="w-4 h-4" />}
-              onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => onSelectIntent('Diagnóstico Gratuito')}
             >
               Diagnóstico Gratuito
             </Button>
