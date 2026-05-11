@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'FAQ', href: '#faq' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -63,7 +63,7 @@ export default function Navbar() {
         <Button 
           variant="primary" 
           className="hidden md:inline-flex text-sm py-2.5 px-5"
-          onClick={() => handleScroll('#contato')}
+          onClick={() => onSelectIntent('Consultoria via Navbar')}
         >
           Solicitar Consultoria
         </Button>
@@ -93,7 +93,10 @@ export default function Navbar() {
               <Button 
                 variant="primary" 
                 className="w-full justify-center text-sm"
-                onClick={() => handleScroll('#contato')}
+                onClick={() => {
+                  setMenuOpen(false);
+                  onSelectIntent('Consultoria via Mobile Menu');
+                }}
               >
                 Solicitar Consultoria
               </Button>

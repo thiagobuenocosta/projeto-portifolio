@@ -4,7 +4,7 @@ import { SectionHeader } from './ui/SectionHeader';
 import { Button } from './ui/Button';
 import { PRICING_TIERS } from '../constants/content';
 
-export default function Pricing() {
+export default function Pricing({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
   return (
     <Section 
       id="pacotes"
@@ -69,7 +69,7 @@ export default function Pricing() {
                 variant={tier.variant}
                 icon={<ArrowRight className="w-4 h-4" />}
                 className="w-full justify-center"
-                onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => onSelectIntent(tier.name)}
               >
                 {tier.cta}
               </Button>
