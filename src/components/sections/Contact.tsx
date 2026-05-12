@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Send, ArrowRight, CheckCircle, MessageCircle, Loader2, AlertCircle, Mail, Zap, ShieldCheck } from 'lucide-react';
+import { ArrowRight, CheckCircle, MessageCircle, Loader2, AlertCircle, Mail, Zap, ShieldCheck } from 'lucide-react';
 import { Section, Button, FormField, Modal } from '@/components/ui';
 
 export default function Contact({ selectedIntent }: { selectedIntent?: string }) {
