@@ -1,9 +1,10 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Section, SectionHeader } from '@/components/ui';
 import { CASES } from '@/constants/content';
-import { scrollTo } from '@/utils/scroll';
+import { useScrollTo } from '@/hooks/useScrollTo';
 
 export default function CaseStudies() {
+  const scrollTo = useScrollTo();
   return (
     <Section id="cases">
       <SectionHeader 

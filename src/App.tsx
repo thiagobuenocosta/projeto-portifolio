@@ -1,28 +1,30 @@
 import { useState, lazy, Suspense } from 'react'
 import Navbar from '@/components/Navbar'
-import Hero from '@/components/Hero'
+import Hero from '@/components/sections/Hero'
 import Preloader from '@/components/Preloader'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Analytics } from "@vercel/analytics/react"
+import { useScrollTo } from '@/hooks/useScrollTo'
 
 // Lazy load: seções abaixo do fold
-const Problem = lazy(() => import('@/components/Problem'))
-const Solutions = lazy(() => import('@/components/Solutions'))
-const CaseStudies = lazy(() => import('@/components/CaseStudies'))
-const Authority = lazy(() => import('@/components/Authority'))
-const SocialProof = lazy(() => import('@/components/SocialProof'))
-const Pricing = lazy(() => import('@/components/Pricing'))
-const FAQ = lazy(() => import('@/components/FAQ'))
-const Contact = lazy(() => import('@/components/Contact'))
+const Problem = lazy(() => import('@/components/sections/Problem'))
+const Solutions = lazy(() => import('@/components/sections/Solutions'))
+const CaseStudies = lazy(() => import('@/components/sections/CaseStudies'))
+const Authority = lazy(() => import('@/components/sections/Authority'))
+const SocialProof = lazy(() => import('@/components/sections/SocialProof'))
+const Pricing = lazy(() => import('@/components/sections/Pricing'))
+const FAQ = lazy(() => import('@/components/sections/FAQ'))
+const Contact = lazy(() => import('@/components/sections/Contact'))
 const Footer = lazy(() => import('@/components/Footer'))
 
 export default function App() {
   const [selectedIntent, setSelectedIntent] = useState('');
+  const scrollTo = useScrollTo();
 
   const handleSelectIntent = (intent: string) => {
     setSelectedIntent(intent);
-    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+    scrollTo('contato');
   };
 
   return (

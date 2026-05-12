@@ -3,7 +3,7 @@ import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Button } from '@/components/ui/Button';
 import { PAINS } from '@/constants/content';
-import { scrollTo } from '@/utils/scroll';
+import { useScrollTo } from '@/hooks/useScrollTo';
 
 const iconMap: Record<string, React.ReactNode> = {
   Clock: <Clock className="w-6 h-6 text-red-400" />,
@@ -13,6 +13,7 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 export default function Problem() {
+  const scrollTo = useScrollTo();
   return (
     <Section 
       id="problema"
