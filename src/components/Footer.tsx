@@ -1,8 +1,9 @@
 import { ArrowRight, Zap } from 'lucide-react';
 import { Button } from '@/components/ui';
-import { scrollTo } from '@/utils/scroll';
+import { useScrollTo } from '@/hooks/useScrollTo';
 
 export default function Footer({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
+  const scrollTo = useScrollTo();
   return (
     <>
       <section className="relative py-24 overflow-hidden">

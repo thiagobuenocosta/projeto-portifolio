@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui';
-import { scrollTo } from '@/utils/scroll';
+import { useScrollTo } from '@/hooks/useScrollTo';
 
 const navLinks = [
   { label: 'Soluções', id: 'solucoes' },
@@ -14,6 +14,7 @@ const navLinks = [
 export default function Navbar({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const scrollTo = useScrollTo();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);

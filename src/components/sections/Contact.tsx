@@ -48,7 +48,7 @@ export default function Contact({ selectedIntent }: { selectedIntent?: string })
     const message = encodeURIComponent(
       `Olá! Vim através do site e gostaria de um diagnóstico.\n\nNome: ${form.name || 'Não informado'}\nEmpresa: ${form.company || 'Não informada'}\nInteresse: ${selectedIntent || 'Geral'}`
     );
-    window.open(`https://wa.me/556299645389?text=${message}`, '_blank');
+    window.open(`https://wa.me/5562996495389?text=${message}`, '_blank');
   };
 
   if (status === 'success') {

@@ -1,9 +1,10 @@
 import { ArrowRight, Calendar, TrendingUp, Gauge } from 'lucide-react';
 import { Button } from '@/components/ui';
 import { BRAND } from '@/constants/content';
-import { scrollTo } from '@/utils/scroll';
+import { useScrollTo } from '@/hooks/useScrollTo';
 
 export default function Hero({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
+  const scrollTo = useScrollTo();
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
