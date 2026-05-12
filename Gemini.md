@@ -80,3 +80,6 @@ Princípios que guiam o desenvolvimento e a manutenção deste projeto, baseados
 - [x] Otimização de Performance: Substituição do preloader em vídeo (2.6MB) por uma animação CSS pura.
 - [x] Otimização de Performance: Implementação de *Code Splitting* (manualChunks no Vite) e *Lazy Loading* de seções.
 - [x] Estabilidade: Adição de `Error Boundaries` para prevenção de falhas sistêmicas de renderização.
+- [x] Evolução de Contato: Implementação de Modal de Seleção (WhatsApp vs E-mail) para qualificação de leads.
+- [x] Evolução de Contato: Mensagens estruturadas (Diagnóstico) e validação obrigatória de campos.
+- [x] Design: Implementação de Modal Premium com Glassmorphism.
