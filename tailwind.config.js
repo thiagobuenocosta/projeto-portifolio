@@ -29,17 +29,17 @@ export default {
           500: '#06b6d4',
         },
         surface: {
-          950: '#020409',
-          900: '#060c18',
-          800: '#0a1628',
-          700: '#0f2040',
-          600: '#162d58',
+          950: '#f8fafc', // Fundo sutil de seção/rodapé
+          900: '#ffffff', // Fundo principal do site
+          800: '#ffffff', // Fundo de cards / superfícies
+          700: '#e2e8f0', // Bordas e separadores
+          600: '#cbd5e1', // Elementos de contraste sutil
         },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-glow': 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(10, 127, 255, 0.3), transparent)',
-        'card-glow': 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(10, 127, 255, 0.15), transparent)',
+        'hero-glow': 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(10, 127, 255, 0.07), transparent)',
+        'card-glow': 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(10, 127, 255, 0.04), transparent)',
       },
       animation: {
         'fade-up': 'fadeUp 0.6s ease-out forwards',
@@ -65,8 +65,8 @@ export default {
           '50%': { transform: 'translateY(-10px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(10, 127, 255, 0.3)' },
-          '100%': { boxShadow: '0 0 40px rgba(10, 127, 255, 0.7)' },
+          '0%': { boxShadow: '0 0 20px rgba(10, 127, 255, 0.15)' },
+          '100%': { boxShadow: '0 0 40px rgba(10, 127, 255, 0.3)' },
         },
         progress: {
           '0%': { transform: 'scaleX(0)' },
@@ -82,10 +82,10 @@ export default {
         },
       },
       boxShadow: {
-        'brand': '0 0 30px rgba(10, 127, 255, 0.4)',
-        'brand-lg': '0 0 60px rgba(10, 127, 255, 0.3)',
-        'card': '0 1px 1px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05)',
-        'card-hover': '0 8px 32px rgba(10, 127, 255, 0.2), 0 0 0 1px rgba(10, 127, 255, 0.3)',
+        'brand': '0 8px 30px rgba(10, 127, 255, 0.08)',
+        'brand-lg': '0 16px 40px rgba(10, 127, 255, 0.12)',
+        'card': '0 4px 20px rgba(15, 23, 42, 0.03), 0 0 0 1px rgba(15, 23, 42, 0.05)',
+        'card-hover': '0 12px 32px rgba(10, 127, 255, 0.08), 0 0 0 1px rgba(10, 127, 255, 0.2)',
       },
     },
   },

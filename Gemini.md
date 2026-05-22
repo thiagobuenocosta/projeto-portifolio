@@ -1,6 +1,6 @@
 # GEMINI.md: A Spec que Evolui
 
-Este documento é a fonte da verdade para o projeto **projeto-portifolio**. Ele serve como o "onboarding doc" para o agente de IA e evolui conforme novas decisões, arquiteturas e soluções são implementadas.
+Este documento é a fonte da verdade para o projeto **projeto-portifolio**. Ele serve como o "onboarding doc" para o agente de IA e evolui conforme novas decisões, arquiteturas e soluções foram implementadas.
 
 ---
 
@@ -24,9 +24,9 @@ Princípios que guiam o desenvolvimento e a manutenção deste projeto, baseados
 
 8.  **O agente nunca diz “não”. Você é o filtro.** A IA é uma ferramenta que implementará o que for pedido, seja uma solução over-engineered ou insegura. O desenvolvedor humano é o revisor de código, o arquiteto de segurança e o "adulto na sala", responsável por garantir a qualidade e a sensatez das soluções implementadas.
 
-9.  **Institucionalização gera Autoridade.** A transição do tom de voz de "Eu" (Freelancer) para "Nós/Nossa Equipe" (Estúdio/Agência) altera a percepção de escala e profissionalismo, permitindo tickets médios mais altos e maior confiança do cliente B2B.
+9.  **Engenharia gera Autoridade.** A transição do foco de "Design/Visual" para "Engenharia de Software/Missão Crítica" altera a percepção de robustez e profissionalismo, permitindo tickets médios mais altos e maior confiança do cliente que busca escala e estabilidade.
 
-10. **Serviços Produtizados eliminam a dúvida.** Estruturar a oferta em pacotes fechados (Tiers: Foundation, Transformation, Partnership) com preços e prazos claros reduz o ciclo de venda e facilita o onboarding do cliente.
+10. **Serviços Produtizados eliminam a dúvida.** Estruturar a oferta em pacotes técnicos claros (Landing Pages, SaaS, Institucionais, Portfólios) com foco em entregáveis de engenharia reduz o ciclo de venda e facilita o onboarding do cliente.
 
 ---
 
@@ -43,43 +43,37 @@ Princípios que guiam o desenvolvimento e a manutenção deste projeto, baseados
 ## 2. Arquitetura e Padrões
 
 - **Estrutura de Domínio:** O código é organizado separando responsabilidades: `components/ui` para blocos reutilizáveis, `constants` para dados puros, `types` para definições TypeScript e `utils` para funções isoladas. O projeto faz uso de *Path Aliases* (`@/`) para garantir imports limpos.
-- **Centralização de Conteúdo (Data-Driven UI):** Todo o copywriting, preços e detalhes de serviços devem ser mantidos em `src/constants/content.ts`. O arquivo de dados **não** deve importar a biblioteca `React` nem criar elementos JSX. O objetivo é manter os dados puros.
+- **Centralização de Conteúdo (Data-Driven UI):** Todo o copywriting, detalhes técnicos e cases devem ser mantidos em `src/constants/content.ts`. O arquivo de dados **não** deve importar a biblioteca `React` nem criar elementos JSX. O objetivo é manter os dados puros.
 - **Navegação:** Uso da função utilitária `scrollTo()` centralizada para lidar com o comportamento de "smooth scroll".
-- **Performance:** Uso intenso de Code Splitting (separação dos vendors) no Vite, e *Lazy Loading* com `React.lazy()` + `Suspense` em seções não visíveis na primeira dobra para garantir LCP otimizado.
-- **Design Premium (Identidade Nexus):** Dark Mode nativo com uso de glassmorphism (`backdrop-blur`), gradientes radiais saturados e micro-animações em CSS puro. O foco é uma estética futurista, limpa e leve.
+- **Performance:** Uso intenso de Code Splitting (manualChunks no Vite) e *Lazy Loading* com `React.lazy()` + `Suspense` em seções não visíveis na primeira dobra.
+- **Design Premium (Identidade RB):** Dark Mode nativo com foco em sobriedade técnica, usando glassmorphism (`backdrop-blur`), gradientes sutis e micro-animações que reforçam a sensação de precisão e robustez.
 
 ---
 
 ## 3. Identidade e Estratégia de Negócio
 
-- **Nome da Marca:** `Rosa Bueno Studio Tech`.
-- **Posicionamento:** Estúdio de Consultoria Tecnológica e Engenharia de Elite — "Nossa equipe projeta e constrói posicionamentos digitais de alto impacto do zero".
-- **UVP:** "Nossa equipe projeta e constrói posicionamentos digitais de alto impacto do zero para transformar tecnologia em lucro".
-- **Serviços Produtizados (Tiers):**
-    1. **Foundation (Auditoria de Posicionamento):** Diagnóstico técnico e estratégico com plano de ação (Entrega em 5 dias).
-    2. **Transformation (Website Rescue / Novo Site):** Intervenção completa para resgatar autoridade e acelerar conversão (Entrega em 2-4 semanas).
-    3. **Partnership (Retainer Mensal):** Evolução contínua e suporte estratégico como equipe de Tech Lead dedicada.
-- **Carro-chefe:** Case T&K Jeans Wear como exemplo de impacto real em ROI (vendas e performance).
-- **Conversão (CTAs):** Foco em "Solicitar Diagnóstico" e "Iniciar Projeto" para qualificar leads de alto valor.
+- **Nome da Marca:** `RB — Rosa Bueno Desenvolvimento de Software`.
+- **Posicionamento:** Engenharia de Software Sob Medida e Sistemas de Missão Crítica.
+- **UVP:** "Engenharia de software sob medida para escalar operações e conectar regras de negócio complexas a alta performance."
+- **Produtos Produtizados (High Performance):**
+    1. **Landing Pages:** Foco em conversão, velocidade extrema e SEO técnico.
+    2. **SaaS (Software as a Service):** Sistemas escaláveis, multi-tenancy e arquitetura de nuvem.
+    3. **Sites Institucionais:** Autoridade digital com integridade de dados e segurança.
+    4. **Portfólios:** Diferenciação visual com excelência técnica.
+- **Carro-chefe:** Case T&K Jeans Wear (Exemplo de SSR, LCP otimizado e infraestrutura inquebrável).
+- **Conversão (CTAs):** Foco em "Solicitar Diagnóstico Técnico" e "Iniciar Projeto de Engenharia".
 
 ---
 
 ## 4. Progresso Consolidado (Maio 2026)
 
-- [x] Reposicionamento completo da marca (de Thiago Bueno para Rosa Bueno Studio Tech).
-- [x] Institucionalização do Copywriting (plural majestático "Nós").
+- [x] Transição de marca para RB — Rosa Bueno Desenvolvimento de Software.
+- [x] Reposicionamento para foco em Engenharia de Software e Missão Crítica.
 - [x] Estruturação da camada de dados em `content.ts` (desacoplada da biblioteca React).
-- [x] Implementação da Seção de Autoridade com Cases Reais.
-- [x] Refatoração do Hero para foco em UVP (Unique Value Proposition).
-- [x] Configuração de FAQ para quebra de objeções.
+- [x] Implementação da Seção de Autoridade com Cases Ricos (T&K Jeans Wear).
+- [x] Refatoração do Hero para foco em UVP de Engenharia.
+- [x] Expansão do grid de Serviços para 4 produtos produtizados.
 - [x] Design System unificado no Tailwind (Paleta Brand, Surface e Accent).
-- [x] Implementação do Vercel Speed Insights e Analytics para monitoramento.
-- [x] Otimização avançada de SEO Técnico (Open Graph, Twitter Cards, Canonical URL `rosabueno.com.br`).
-- [x] Implementação de Dados Estruturados (JSON-LD) e Arquivos de Busca (`robots.txt`, `sitemap.xml`).
-- [x] Refatoração Arquitetural: Implementação de Path Aliases (`@/`), centralização de tipos (`types/`) e utilitários (`utils/`).
-- [x] Otimização de Performance: Substituição do preloader em vídeo (2.6MB) por uma animação CSS pura.
-- [x] Otimização de Performance: Implementação de *Code Splitting* (manualChunks no Vite) e *Lazy Loading* de seções.
-- [x] Estabilidade: Adição de `Error Boundaries` para prevenção de falhas sistêmicas de renderização.
-- [x] Evolução de Contato: Implementação de Modal de Seleção (WhatsApp vs E-mail) para qualificação de leads.
-- [x] Evolução de Contato: Mensagens estruturadas (Diagnóstico) e validação obrigatória de campos.
-- [x] Design: Implementação de Modal Premium com Glassmorphism.
+- [x] Configuração de Otimização de Performance (Code Splitting, Lazy Loading).
+- [x] Implementação de SEO Técnico e Dados Estruturados.
+- [x] Otimização de Conversão: Modal de Diagnóstico Técnico e fluxos de qualificação.

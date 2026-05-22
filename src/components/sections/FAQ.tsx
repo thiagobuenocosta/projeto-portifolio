@@ -21,19 +21,19 @@ export default function FAQ() {
         {FAQS.map((faq, i) => (
           <div
             key={i}
-            className={`glass-card overflow-hidden transition-all duration-300 ${open === i ? 'border-brand-700/50' : ''}`}
+            className={`glass-card overflow-hidden transition-all duration-300 ${open === i ? 'border-brand-500 shadow-brand' : ''}`}
           >
             <button
               onClick={() => setOpen(open === i ? null : i)}
               className="w-full flex items-center justify-between p-6 text-left gap-4"
               aria-expanded={open === i}
             >
-              <span className={`text-sm font-semibold leading-snug transition-colors ${open === i ? 'text-white' : 'text-slate-300'}`}>
+              <span className={`text-sm font-semibold leading-snug transition-colors ${open === i ? 'text-brand-600' : 'text-slate-700 hover:text-slate-900'}`}>
                 {faq.q}
               </span>
               <ChevronDown
                 className={`w-5 h-5 flex-shrink-0 transition-all duration-300 ${
-                  open === i ? 'rotate-180 text-brand-400' : 'text-slate-500'
+                  open === i ? 'rotate-180 text-brand-600' : 'text-slate-400'
                 }`}
               />
             </button>
@@ -42,7 +42,7 @@ export default function FAQ() {
               className={`transition-all duration-300 overflow-hidden ${open === i ? 'max-h-64' : 'max-h-0'}`}
             >
               <div className="px-6 pb-6">
-                <p className="text-sm text-slate-400 leading-relaxed">{faq.a}</p>
+                <p className="text-sm text-slate-600 leading-relaxed">{faq.a}</p>
               </div>
             </div>
           </div>
