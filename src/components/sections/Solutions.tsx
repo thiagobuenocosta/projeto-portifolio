@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Building2, ShoppingCart, Wrench } from 'lucide-react';
+import { ArrowRight, Check, Building2, ShoppingCart, Wrench, Zap, Layers, BarChart3 } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Button } from '@/components/ui/Button';
@@ -8,6 +8,9 @@ const iconMap: Record<string, React.ReactNode> = {
   Building2: <Building2 className="w-7 h-7" />,
   ShoppingCart: <ShoppingCart className="w-7 h-7" />,
   Wrench: <Wrench className="w-7 h-7" />,
+  Zap: <Zap className="w-7 h-7" />,
+  Layers: <Layers className="w-7 h-7" />,
+  BarChart3: <BarChart3 className="w-7 h-7" />,
 };
 
 export default function Solutions({ onSelectIntent }: { onSelectIntent: (intent: string) => void }) {
@@ -28,12 +31,12 @@ export default function Solutions({ onSelectIntent }: { onSelectIntent: (intent:
         description="Não vendemos 'horas de código'. Entregamos soluções fechadas com escopo, prazo e investimento definidos — para você poder planejar e crescer."
       />
 
-      <div className="grid lg:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {SERVICES.map((service) => (
           <div
             key={service.id}
             className={`relative glass-card p-8 flex flex-col bg-gradient-to-b ${service.gradient} ${service.border} ${
-              service.featured ? 'ring-1 ring-violet-500/30 shadow-lg shadow-violet-900/20' : ''
+              service.featured ? 'ring-1 ring-violet-500/30 shadow-lg shadow-violet-500/10' : ''
             }`}
           >
             {service.featured && (
@@ -49,17 +52,17 @@ export default function Solutions({ onSelectIntent }: { onSelectIntent: (intent:
                 {iconMap[service.iconName]}
               </div>
               <span className="section-label text-[10px] mb-2 block">{service.tag}</span>
-              <h3 className="text-2xl font-black text-white mb-1">{service.title}</h3>
+              <h3 className="text-2xl font-black text-slate-900 mb-1">{service.title}</h3>
               <p className="text-sm text-slate-500 mb-4">{service.subtitle}</p>
-              <p className="text-slate-400 text-sm leading-relaxed">{service.description}</p>
+              <p className="text-slate-600 text-sm leading-relaxed">{service.description}</p>
             </div>
 
             <div className="flex-1 mb-8">
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-3">O que está incluído</p>
               <ul className="space-y-2.5">
                 {service.deliverables.map((d) => (
-                  <li key={d} className="flex items-start gap-2.5 text-sm text-slate-300">
-                    <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                  <li key={d} className="flex items-start gap-2.5 text-sm text-slate-600">
+                    <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                     {d}
                   </li>
                 ))}

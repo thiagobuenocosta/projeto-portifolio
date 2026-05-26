@@ -31,21 +31,21 @@ export default function Navbar({ onSelectIntent }: { onSelectIntent: (intent: st
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-surface-950/90 backdrop-blur-md border-b border-white/[0.06] shadow-xl shadow-black/30'
+          ? 'bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm'
           : 'bg-transparent'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3 group" aria-label="Rosa Bueno Studio Tech Home">
-          <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-white/10 shadow-brand group-hover:shadow-brand-lg transition-all duration-300">
+        <a href="#" className="flex items-center gap-3 group" aria-label="RB | Rosa Bueno Desenvolvimento de Software Home">
+          <div className="relative w-10 h-10 rounded-lg overflow-hidden border border-slate-200 shadow-brand group-hover:shadow-brand-lg transition-all duration-300">
             <img 
               src="/favicon.jpeg" 
-              alt="RB Studio Tech Logo" 
+              alt="RB Logo" 
               className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
             />
           </div>
-          <span className="font-bold text-white tracking-tight uppercase text-sm lg:text-base">
-            Rosa Bueno <span className="text-brand-400">Studio Tech</span>
+          <span className="font-bold text-slate-900 tracking-tight uppercase text-sm lg:text-base">
+            <span className="text-brand-600">RB</span> | Rosa Bueno <span className="hidden sm:inline-block text-[10px] lg:text-xs opacity-50 font-medium normal-case">Desenvolvimento de Software</span>
           </span>
         </a>
 
@@ -54,7 +54,7 @@ export default function Navbar({ onSelectIntent }: { onSelectIntent: (intent: st
             <li key={link.id}>
               <button
                 onClick={() => handleNav(link.id)}
-                className="px-4 py-2 text-sm text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.05] transition-all duration-200"
+                className="px-4 py-2 text-sm text-slate-600 hover:text-slate-900 rounded-lg hover:bg-slate-100 transition-all duration-200"
               >
                 {link.label}
               </button>
@@ -65,14 +65,14 @@ export default function Navbar({ onSelectIntent }: { onSelectIntent: (intent: st
         <Button 
           variant="primary" 
           className="hidden md:inline-flex text-sm py-2.5 px-5"
-          onClick={() => onSelectIntent('Consultoria via Navbar')}
+          onClick={() => onSelectIntent('Diagnóstico via Navbar')}
         >
-          Solicitar Consultoria
+          Solicitar Diagnóstico
         </Button>
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.08] transition-all"
+          className="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all"
           aria-label="Menu"
         >
           {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -80,18 +80,18 @@ export default function Navbar({ onSelectIntent }: { onSelectIntent: (intent: st
       </nav>
 
       {menuOpen && (
-        <div className="md:hidden bg-surface-900/95 backdrop-blur-md border-b border-white/[0.06]">
+        <div className="md:hidden bg-white/95 backdrop-blur-md border-b border-slate-200">
           <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => handleNav(link.id)}
-                className="px-4 py-3 text-sm text-left text-slate-300 hover:text-white hover:bg-white/[0.05] rounded-lg transition-all"
+                className="px-4 py-3 text-sm text-left text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-all"
               >
                 {link.label}
               </button>
             ))}
-            <div className="pt-3 border-t border-white/[0.06] mt-2">
+            <div className="pt-3 border-t border-slate-200 mt-2">
               <Button 
                 variant="primary" 
                 className="w-full justify-center text-sm"
@@ -100,7 +100,7 @@ export default function Navbar({ onSelectIntent }: { onSelectIntent: (intent: st
                   onSelectIntent('Consultoria via Mobile Menu');
                 }}
               >
-                Solicitar Consultoria
+                Solicitar Diagnóstico
               </Button>
             </div>
           </div>

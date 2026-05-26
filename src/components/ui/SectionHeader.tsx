@@ -20,11 +20,11 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   return (
     <div className={`max-w-2xl mb-16 ${alignmentClasses} ${className}`}>
       <p className="section-label mb-4">{label}</p>
-      <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-white mb-6">
+      <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-slate-900 mb-6">
         {title}
       </h2>
       {description && (
-        <p className="text-lg text-slate-400 leading-relaxed">
+        <p className="text-lg text-slate-600 leading-relaxed">
           {description}
         </p>
       )}

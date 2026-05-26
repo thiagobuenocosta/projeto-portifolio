@@ -73,6 +73,14 @@ export interface CaseResult {
   color: string;
 }
 
+/** Pilar técnico detalhado (para case de destaque) */
+export interface CasePillar {
+  icon: string;
+  title: string;
+  desc: string;
+  metrics?: string[];
+}
+
 /** Case study */
 export interface Case {
   id: string;
@@ -83,6 +91,12 @@ export interface Case {
   results: CaseResult[];
   tags: string[];
   gradient: string;
+  // Campos ricos para case de destaque
+  headline?: string;
+  scenario?: string;
+  detailedSections?: CasePillar[];
+  closingQuote?: string;
+  featured?: boolean;
 }
 
 /** Pilar de autoridade */
